@@ -4,6 +4,7 @@ Terminal:
 cd /path/to/laragon/www/
 mkdir BlogAssignment
 cd BlogAssignment
+<img width="542" height="310" alt="terminal" src="https://github.com/user-attachments/assets/e6808e4e-30a5-4471-be4b-08402a782658" />
 
 .......... Paste all your project files here..................
 composer install
@@ -58,16 +59,11 @@ cmd
 :: 4. GET ALL POSTS
 curl http://localhost:8000/api/posts
 
-:: 5. GET SINGLE POST
-curl http://localhost:8000/api/posts/test-post-slug
-
-:: 6. GET COMMENTS
-curl http://localhost:8000/api/posts/test-post-slug/comments
-
-:: 7. SUBMIT COMMENT
+:: 5. SUBMIT COMMENT
 curl -X POST http://localhost:8000/api/posts/test-post-slug/comments ^
   -H "Content-Type: application/json" ^
   -d "{\"author\":\"John Doe\",\"content\":\"Great article!\"}"
+<img width="723" height="350" alt="token response" src="https://github.com/user-attachments/assets/cb3c733f-024c-4317-9a8b-747037e2bde9" />
 
 .................. WEB PAGES...................
 Page	           URL	

@@ -1,0 +1,91 @@
+..........Setup Project.............
+bash
+# In Laragon www folder
+cd /path/to/laragon/www/
+mkdir blog-system
+cd blog-system
+# Paste all your project files here
+composer install
+copy .env.example .env
+php artisan key:generate
+php artisan jwt:secret
+
+..........Setup Database...........
+
+# Create database
+# Update .env file - Change these lines:
+# DB_DATABASE=BlogAssignment
+# DB_USERNAME=root
+# DB_PASSWORD=
+    Run Setup Commands
+Terminal:
+php artisan migrate
+
+.........Create admin user...............
+Terminal:
+php artisan tinker
+# In Tinker:
+App\Models\User::create([
+    'name' => 'Admin',
+    'email' => 'philipsuccess101@gmail.com',
+    'password' => bcrypt('password123')
+]);
+exit
+
+............Start Server................
+Terminal:
+php artisan serve
+# Open: http://localhost:8000
+
+                        JWT Authentication APIs
+cmd
+:: 1. GET TOKEN
+curl -X POST http://localhost:8000/api/auth/login ^
+  -H "Content-Type: application/json" ^
+  -d "{\"email\":\"admin@blog.com\",\"password\":\"password123\"}"
+
+:: 2. TEST PROFILE (Replace YOUR_TOKEN)
+curl -X GET http://localhost:8000/api/auth/profile ^
+  -H "Authorization: Bearer YOUR_TOKEN"
+
+:: 3. LOGOUT
+curl -X POST http://localhost:8000/api/auth/logout ^
+  -H "Authorization: Bearer YOUR_TOKEN"
+Public APIs (No Token)
+cmd
+:: 4. GET ALL POSTS
+curl http://localhost:8000/api/posts
+
+:: 5. GET SINGLE POST
+curl http://localhost:8000/api/posts/test-post-slug
+
+:: 6. GET COMMENTS
+curl http://localhost:8000/api/posts/test-post-slug/comments
+
+:: 7. SUBMIT COMMENT
+curl -X POST http://localhost:8000/api/posts/test-post-slug/comments ^
+  -H "Content-Type: application/json" ^
+  -d "{\"author\":\"John Doe\",\"content\":\"Great article!\"}"
+
+.................. WEB PAGES...................
+Page	           URL	
+Homepage	http://localhost:8000
+Admin Login	http://localhost:8000/login	
+Admin Posts	http://localhost:8000/admin/posts	
+Create Post	http://localhost:8000/admin/posts/create	
+View Post	http://localhost:8000/post/{slug}	
+Admin Login:
+
+Email: philipsuccess101@gmail.com
+Password: password123
+
+.................SCREENSHOTS.......................
+Screenshots are saved in the screenshot folder
+
+All blogs.png - Public blog listing
+Admin login.png - Admin login screen
+admin dashboard.png - Posts management
+createpost.png - Create post form
+token response.png - JWT token response
+api posts.png - Posts API response
+

@@ -1,9 +1,9 @@
 ..........Setup Project.............
-bash
-..............In Laragon www folder......................
+
+Terminal:
 cd /path/to/laragon/www/
-mkdir blog-system
-cd blog-system
+mkdir BlogAssignment
+cd BlogAssignment
 
 .......... Paste all your project files here..................
 composer install
@@ -26,7 +26,7 @@ php artisan migrate
 .........Create admin user...............
 Terminal:
 php artisan tinker
-# In Tinker:
+In Tinker:
 App\Models\User::create([
     'name' => 'Admin',
     'email' => 'philipsuccess101@gmail.com',
@@ -37,7 +37,7 @@ exit
 ............Start Server................
 Terminal:
 php artisan serve
-# Open: http://localhost:8000
+Open: http://localhost:8000
 
                         JWT Authentication APIs
 cmd
@@ -71,25 +71,26 @@ curl -X POST http://localhost:8000/api/posts/test-post-slug/comments ^
 
 .................. WEB PAGES...................
 Page	           URL	
-Homepage	http://localhost:8000
-Admin Login	http://localhost:8000/login	
-Admin Posts	http://localhost:8000/admin/posts	
-Create Post	http://localhost:8000/admin/posts/create	
-View Post	http://localhost:8000/post/{slug}	
-Admin Login:
+Homepage	http://localhost:8000,
+Admin Login	http://localhost:8000/login,	
+Admin Posts	http://localhost:8000/admin/posts,	
+Create Post	http://localhost:8000/admin/posts/create,	
+View Post	http://localhost:8000/post/{slug},
 
-Email: philipsuccess101@gmail.com
+Admin Login:
+Email: philipsuccess101@gmail.com,
 Password: password123
 
 .................SCREENSHOTS.......................
+
 Screenshots are saved in the screenshot folder
 
-All blogs.png - Public blog listing
-Admin login.png - Admin login screen
-admin dashboard.png - Posts management
-createpost.png - Create post form
-token response.png - JWT token response
-api posts.png - Posts API response
-Login DB.png
+All blogs.png - Public blog listing,
+Admin login.png - Admin login screen,
+admin dashboard.png - Posts management,
+createpost.png - Create post form,
+token response.png - JWT token response,
+api posts.png - Posts API response,
+Login DB.png,
 Post DB.png
 

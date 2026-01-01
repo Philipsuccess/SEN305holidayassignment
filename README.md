@@ -1,10 +1,11 @@
 ..........Setup Project.............
 bash
-# In Laragon www folder
+..............In Laragon www folder......................
 cd /path/to/laragon/www/
 mkdir blog-system
 cd blog-system
-# Paste all your project files here
+
+.......... Paste all your project files here..................
 composer install
 copy .env.example .env
 php artisan key:generate
@@ -12,11 +13,12 @@ php artisan jwt:secret
 
 ..........Setup Database...........
 
-# Create database
-# Update .env file - Change these lines:
-# DB_DATABASE=BlogAssignment
-# DB_USERNAME=root
-# DB_PASSWORD=
+Create database
+Update .env file - Change these lines:
+DB_DATABASE=BlogAssignment
+DB_USERNAME=root
+DB_PASSWORD=
+
     Run Setup Commands
 Terminal:
 php artisan migrate
